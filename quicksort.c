@@ -1,56 +1,64 @@
+//sorting using quicksort ..
+
+
 #include<stdio.h>
-int partition(int , int );
-void quicksort(int , int );
+#include<conio.h>
 
-int a[50];
-int main(){
-	printf("Enter size of array\n");
-	int n ;
-	scanf("%d",&n);
-	printf("Enter the elements of array\n");
-	int i ;
-	for(i=0;i<n;i++)
-	{
-		scanf("%d",&a[i]);
-	}
-
-	quicksort(0,n-1);
-	printf("The sorted array is : \n");
-	for(i=0;i<n;i++)
-	{
-		printf("%d\n",a[i]);
-	}
-	
-	return 0;
+int a[10];
+void quicksort(int [] , int , int);
+int partition(int [] , int , int);
+main()
+{
+      int i = 0 ;
+      printf("ENter elements to be sorted int array \n");
+      printf("Hit any key to stop entering elements\n");
+      while(i<10)
+      {
+                     scanf("%d",&a[i]);
+                     i++;
+      }
+      quicksort(a,0,9);
+      i=0;
+      while(i<10)
+      {
+                     printf("%d",a[i]);
+                     i++;
+      }
+      getch();
 }
 
-void quicksort(int c , int d)
+void quicksort(int b[10] ,int p ,  int r)
 {
-	if(c<d){
-	int q = partition(c ,d);
-	quicksort(c,q-1);
-	quicksort(q+1,d); }
+     int q ;
+     if(p<r)
+     {
+            q =  partition(b,p,r);
+            quicksort(a,p,q-1);
+            quicksort(a,q+1,r);
+     }
 }
 
-int partition(int m, int b)
+int partition(int b[10] , int p , int r)
 {
-	int i , j ,temp ;
-	i=m-1;
-//	printf("%d\n",i);
-	for(j=m ; j<b;j++)
-	{
-		if(a[j]<=a[b])
-		{
-			i++;
-			temp = a[j];
-			a[j]=a[i];
-			a[i]=temp;
-		}
-	}
-	
-	temp = a[i+1];
-	a[i+1]=a[b];
-	a[b]=temp;
-	
-	return(i+1);
+    int i = p-1 ;
+    int temp ;
+    while(p<r)
+    {
+              if(a[p]<a[r]) //taking a[r] as pivot elements here ...
+              {
+                            
+                            i++;
+                            temp = a[p]; //swapping a[i]  and a[p]  ..
+                            a[p]=a[i];
+                            a[i]=temp;              
+              }
+              p++;          
+    }
+    //swap a[i+1] and a[r] ..
+    temp = a[r] ;
+    a[r]=a[i+1];
+    a[i+1]=temp ;
+    
+    
+    return i+1 ;
 }
