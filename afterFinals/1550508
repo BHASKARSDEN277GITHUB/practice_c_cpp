@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<!-- First they ignore you, then they laugh at you, then they fight you, then you win. - Mohandas Karamchand Gandhi -->
+<html lang="en">
+  <head>
+    <!-- Chartbeat Init -->
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+
+<!-- DNS Prefetch -->
+<link rel="dns-prefetch" href="//hrcdn.net">
+<link rel="dns-prefetch" href="//d3rpyts3de3lx8.cloudfront.net">
+<link rel="dns-prefetch" href="//notifications2.hackerrank.com">
+<link rel="dns-prefetch" href="//istrtcdn.com">
+
+<!-- fragmenting for google bot -->
+<meta name="fragment" content="!">
+
+<!-- use the latest IE browser -->
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+<!-- App Icon for iOS Devices -->
+<link rel="apple-touch-icon-precomposed" href="https://hrcdn.net/hackerrank/assets/apple-touch-icon-precomposed-78c25a714410571342d43c61e34d9a8d.png" />
+
+<!-- favicon -->
+<link href="https://hrcdn.net/hackerrank/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+
+<!-- generating meta tags -->
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<meta charset='utf-8' />
+<meta name='description' content='Programming problems and contests in different domains of Computer Science. Solve interesting and challenging programming problems' />
+<meta property='og:title' content='HackerRank' />
+<meta property='og:image' content='https://hrcdn.net/hackerrank/assets/hackerrank_default_og.jpg' />
+<meta property='og:description' content='Where hackers hangout to solve interesting Computer Science challenges' />
+<meta property='fb:app_id' content='347499128655783' />
+<meta property='og:url' content='https://www.hackerrank.com/submissions/code/1550508' />
+<meta property='og:site_name' content='HackerRank' />
+
+<!-- ends meta tags generation -->
+
+<!-- CSRF Token -->
+<meta content="authenticity_token" name="csrf-param" />
+<meta content="v/ifXI2Jl+IrRCXJyXuXx2lzaMrQOhfKtJ7VyHB/pkA=" name="csrf-token" />
+
+<!-- Google Analyitics Init -->
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', "UA-45092266-1"]);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_setCampSourceKey', 'utm_source']);
+    _gaq.push(['_setCampMediumKey', 'utm_medium']);
+    _gaq.push(['_setCampContentKey', 'utm_keyword']);
+    _gaq.push(['_setCampTermKey', 'utm_keyword']);
+    _gaq.push(['_setCampNameKey', 'utm_campaign']);
+</script>
+
+<!-- Mixpanel Init -->
+<script type="text/javascript">
+    var mixpanel = mixpanel || [];
+</script>
+
+<!-- Typography -->
+
+<link rel="stylesheet" type="text/css" href="https://istrtcdn.com/hackerrank/typography/101445/ECC640E2FD8B965C4.css" data-noprefix />
+<script type="text/javascript" src="https://fast.fonts.net/jsapi/3702f818-e4bc-4d15-8cb7-ab98a3155286.js"></script>
+
+<script type="text/javascript">
+    /**
+     * Protect window.console method calls, e.g. console is not defined on IE
+     * unless dev tools are open, and IE doesn't define console.debug
+     */
+(function() {
+    if (!window.console) {
+      window.console = {};
+    }
+    var m = ["log", "info", "warn", "error", "debug", "trace", "dir", "group", "groupCollapsed", "groupEnd", "time", "timeEnd", "profile", "profileEnd", "dirxml", "assert", "count", "markTimeline", "timeStamp", "clear"];
+    // define undefined methods as noops to prevent errors
+    for (var i = 0; i < m.length; i++) {
+        if (!window.console[m[i]]) {
+            window.console[m[i]] = function() {};
+        }
+    }
+})();
+</script>
+
+<!-- Load Jquery -->
+<script src="https://hrcdn.net/hackerrank/assets/base-ef6849676b6d925b1f32535e11e9664b.js" type="text/javascript"></script>
+
+<!-- CDN Failsafe -->
+<script type="text/javascript">var jsCookies={get:function(a){if(0<document.cookie.length){var b=document.cookie.indexOf(a+"=");if(-1!=b)return b=b+a.length+1,a=document.cookie.indexOf(";",b),-1==a&&(a=document.cookie.length),unescape(document.cookie.substring(b,a))}return""},set:function(a,b,d){var c=new Date;c.setDate(c.getDate()+d);document.cookie=a+"="+escape(b)+(null==d?"":"; expires="+c.toUTCString())},check:function(a){a=jsCookies.get(a);return null!=a&&""!=a?!0:!1}};"undefined"==typeof jQuery&&"porsche.interviewstreet.com"!=jsCookies.get("cdn_url")?(jsCookies.set("cdn_url","porsche.interviewstreet.com",1),window.location.reload()):"undefined"==typeof jQuery&&"porsche.interviewstreet.com"==jsCookies.get("cdn_url")&&(jsCookies.set("cdn_url",window.location.host,1),window.location.reload());</script>
+
+<!-- Errorception -->
+<script type="text/javascript">
+  (function(_,e,rr,s){_errs=[s];var c=_.onerror;_.onerror=function(){var a=arguments;_errs.push(a);
+   c&&c.apply(this,a)};var b=function(){var c=e.createElement(rr),b=e.getElementsByTagName(rr)[0];
+   c.src="//beacon.errorception.com/"+s+".js";c.async=!0;b.parentNode.insertBefore(c,b)};
+   _.addEventListener?_.addEventListener("load",b,!1):_.attachEvent("onload",b)})
+   (window,document,"script","50b78854cb2e10773a00002d");
+
+   $(document).ready(function(){
+       _errs.meta = {
+           handle: ''
+       };
+       _errs.allow = function (err) {
+           if (err.message === "Uncaught TypeError: Cannot read property 'frames' of undefined" &&
+               err.line === 206 &&
+               err.stack &&
+               err.stack.indexOf("TeXTheWorld") !== -1) {
+                   return false;
+           }
+           return true;
+       }
+   });
+
+</script>
+
+<!-- Some Black Magic for Internet Explorer -->
+
+<!--[if lt IE 10]>
+<script src="https://hrcdn.net/hackerrank/assets/jquery-plugins/jQuery.XDomainRequest-e0d4a8058da8537c0a057c91750ebbb0.js" type="text/javascript"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6/html5shiv.min.js" type="text/javascript"></script>
+<![endif]-->
+
+<!-- Chrome Frame for IE6 -->
+<!--[if lt IE 7 ]>
+ <script src="https://ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script><script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+<![endif]-->
+
+<!--[if lte IE 9]>
+<script>
+    IE_BROWSER = true
+</script>
+<![endif]-->
+
+<!-- Track button clicks -->
+<script type="text/javascript">
+    $('a, button, input').live('click', function(e) {
+        src = $(e.currentTarget);
+        if (src.attr('data-analytics')) {
+            action = 'Click'; data = src.attr('data-analytics');
+        } else {
+            return;
+        }
+
+        // mixpanel
+        mixpanel.push(['track', action, {
+            'UserName' : '',
+            'Data' : data, 'Page' : '/submissions/code/1550508',
+            'PageType' : 'HomePage',
+            'Domain': 'www.hackerrank.com'
+        }]);
+
+        // google analytics
+        _gaq.push(['_trackEvent', 'Events' , action, data])
+    });
+</script>
+
+    <!-- General Information -->
+    <title>Programming Problems and Competitions :: HackerRank</title>
+    <base href='https://www.hackerrank.com/'>
+
+    <script type="text/javascript">
+      var HR;
+      HR = window.HR || {};
+      HR.PREFETCH_DATA = {"slugs":{"master":{"type":"contest"}},"contest":{"created_at":"2012-07-19T17:13:20Z","description":"","endtime":null,"expose_stats":null,"homepage":"","homepage_background_color":"","id":1,"is_rating_updated":false,"leaderboard_backend":null,"name":"Master","notification":null,"primary_track_id":null,"public":false,"rating_category":null,"slug":"master","starttime":null,"tagline":"","team_event":false,"timezone":"America/Los_Angeles","updated_at":"2014-05-29T11:33:40Z","started":true,"ended":false,"epoch_endtime":0,"epoch_starttime":0,"time_left":null,"hide_difficulty":null,"has_tracks":true,"archived":false,"leaderboard_type":"country","leaderboard_format":"","kind":"","leaderboard_freeze_time":null,"submitted_hackers_count":54440,"categories":[{"id":3,"name":"Algorithms","slug":"algorithms","dynamic_data":{"challenges_count":188,"submissions_count":498481,"maximum_score":8900.0784},"hacker_progress":null,"children":[{"id":43,"name":"Warmup","slug":"warmup"},{"id":38,"name":"Arrays and Sorting","slug":"arrays-and-sorting"},{"id":36,"name":"Search","slug":"search"},{"id":35,"name":"Dynamic Programming","slug":"dynamic-programming"},{"id":34,"name":"Strings","slug":"strings"},{"id":33,"name":"Graph Theory","slug":"graph-theory"},{"id":32,"name":"Math","slug":"maths"},{"id":31,"name":"Discrete Mathematics","slug":"discrete-maths"},{"id":30,"name":"Bit Manipulation","slug":"bit-manipulation"},{"id":29,"name":"NP Complete problems","slug":"np-complete-problems"},{"id":47,"name":"Game Theory","slug":"game-theory"}]},{"id":2,"name":"Artificial Intelligence","slug":"ai","dynamic_data":{"challenges_count":67,"submissions_count":83541,"maximum_score":3445.5049000000004},"hacker_progress":null,"children":[{"id":8,"name":"Bot Building","slug":"introduction"},{"id":9,"name":"A* Search","slug":"astar-search"},{"id":10,"name":"Alpha Beta Pruning","slug":"alpha-beta-pruning"},{"id":14,"name":"Combinatorial Search Theory","slug":"combinatorial-search-theory"},{"id":13,"name":"Richman Games","slug":"richman-games"},{"id":12,"name":"Cellular Automaton Games","slug":"cellular-automaton-games"},{"id":11,"name":"Machine Learning","slug":"machine-learning"},{"id":44,"name":"Digital Image Analysis","slug":"image-analysis"}]},{"id":4,"name":"Miscellaneous","slug":"miscellaneous","dynamic_data":{"challenges_count":61,"submissions_count":81930,"maximum_score":579.509},"hacker_progress":null,"children":[{"id":37,"name":"Regex","slug":"regex"},{"id":42,"name":"Python Tutorials","slug":"python-tutorials"},{"id":39,"name":"Linked Lists","slug":"linked-lists"},{"id":25,"name":"Code Golf","slug":"normal-languages"},{"id":24,"name":"Esoteric Languages","slug":"esoteric-languages"}]},{"id":5,"name":"Functional Programming","slug":"fp","dynamic_data":{"challenges_count":45,"submissions_count":21393,"maximum_score":1424.0},"hacker_progress":null,"children":[{"id":27,"name":"Introduction","slug":"intro"},{"id":26,"name":"Recursion","slug":"recursion"},{"id":40,"name":"Memoization And Dynamic Programming","slug":"dp"},{"id":41,"name":"Miscellaneous","slug":"misc"},{"id":45,"name":"Data Structure","slug":"ds"},{"id":46,"name":"Parsers","slug":"parsers"},{"id":48,"name":"Interpreter and Compilers","slug":"compilers"}]}],"primary_tags":[{"id":6,"is_track":true,"name":"Sorting","slug":"sorting","weightage":1.0},{"id":7,"is_track":true,"name":"Search","slug":"search","weightage":2.0},{"id":8,"is_track":true,"name":"Combinatorial Search Theory","slug":"combinatorial-search-theory","weightage":3.0},{"id":9,"is_track":true,"name":"Richman Games","slug":"richman-games","weightage":4.0},{"id":10,"is_track":true,"name":"Dynamic Programming","slug":"dynamic-programming","weightage":6.0},{"id":11,"is_track":true,"name":"Graph Theory","slug":"graph-theory","weightage":7.0},{"id":12,"is_track":true,"name":"Strings","slug":"strings","weightage":8.0},{"id":13,"is_track":true,"name":"Math","slug":"maths","weightage":9.0},{"id":14,"is_track":true,"name":"Bit Manipulation","slug":"bit-manipulation","weightage":10.0},{"id":49,"is_track":true,"name":"NP Complete problems","slug":"np-complete-problems","weightage":12.0},{"id":57,"is_track":false,"name":"Normal Languages","slug":"normal-languages","weightage":0.0},{"id":58,"is_track":true,"name":"Esoteric Languages","slug":"esoteric-languages","weightage":0.0}]},"metadata":{"landing_contest_slug":"master","current_contest_namespace":"","using_contest_namespace":false,"asset_path":"https://hrcdn.net/hackerrank/assets","filepicker_key":"ApehXMbvXTWqWab7OmMr9z","contest_status":3},"messages":[],"profile":{},"timestamp":1401378519,"tracks":{"ai":{"descriptions":"Develop intelligent agents. Challenges related to bot-building, path planning, search techniques and Game Theory. Exercise your creativity in heuristic design.\n","name":"Artificial Intelligence","priority":4,"slug":"ai","dynamic_data":{"challenges_count":67,"submissions_count":83541,"maximum_score":3445.5049000000004},"hacker_progress":null},"algorithms":{"descriptions":"The true test of problem solving: when one realizes that time and memory aren't infinite.\n","name":"Algorithms","priority":5,"slug":"algorithms","dynamic_data":{"challenges_count":188,"submissions_count":498481,"maximum_score":8900.0784},"hacker_progress":null},"miscellaneous":{"descriptions":"There's something about brevity. What is the shortest possible program which you can write?","name":"Miscellaneous","priority":2,"slug":"miscellaneous","dynamic_data":{"challenges_count":61,"submissions_count":81930,"maximum_score":579.509},"hacker_progress":null},"fp":{"descriptions":"The art of programming with expressions and functions. Experience the challenge of programming without state. A good paradigm for those interested in Map-Reduce and parallel computing.","name":"Functional Programming","priority":1,"slug":"fp","dynamic_data":{"challenges_count":45,"submissions_count":21393,"maximum_score":1424.0},"hacker_progress":null}}};
+      HR.MANIFEST_HASH = "460d587374380797671aff127bb49325badcd010";
+    </script>
+
+    <!-- Stylesheets -->
+    <link href="https://hrcdn.net/hackerrank/assets/libraries-d78d754d4ccb5fc515c3900542563729.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="https://hrcdn.net/hackerrank/assets/hackerrank-core-7fa63f5ba9c377b9edf4a395ef885d70.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="https://hrcdn.net/hackerrank/assets/dashboard-c1f03c433e115fd66232e8f3cf33b490.css" media="all" rel="stylesheet" type="text/css" />
+
+    <!-- Javascripts -->
+    <script src="https://hrcdn.net/hackerrank/assets/libraries-d09d91a37574b7b6d6227c22e588960d.js" type="text/javascript"></script>
+    <script src="https://hrcdn.net/hackerrank/assets/codeshell/dist/codeshell-2ffcf22672e171218d101deee6db9fa0.js" type="text/javascript"></script>
+    <script src="https://hrcdn.net/hackerrank/assets/hackerrank-40c3b4706cdaecaea06ff6677b3b1eab.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function set_manifest(manifest) {
+            HR.MANIFEST = manifest;
+        }
+    </script>
+    <script src="/misc/manifest/460d587374380797671aff127bb49325badcd010?callback=set_manifest" type="text/javascript"></script>
+
+
+    <script data-main="https://hrcdn.net/hackerrank/assets/dashboard-33f83bd2f945f2cdc885ca0a7213cd68.js" src="https://hrcdn.net/hackerrank/assets/require-46ecd03c77bee38dfdf29d5034493d99.js"></script>
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://www.hackerrank.com/rest/blogs.rss" />
+
+</head>
+<body id="HackerRank-main">
+    <div id="fb-root"></div>
+    <script type="text/template" id="navigation">
+    <header id="page-header">
+        <span class="hr_slide-away-element sidebar_toggle pull-left" id="sidebarToggle"><a class="hr_sidebar-menu-link"><i class="icon-menu-small icon--single"></i></a></span>
+        <nav class="page-nav container navbar">
+            <span class="nav-logo"></span>
+            <span class="nav-login-patch"></span>
+            <span class="nav-buttons"></span>
+        </nav>
+    </header>
+</script>
+
+<script type="text/template" id="nav-buttons">
+    <% if (profile && profile.isLoggedIn()) { %>
+    <ul class="page_header_navigation pull-right nav btn-group">
+        <li class="notify_dropdown dropdown" id="tab-profile">
+            <a class="cursor backbone nav-link hr_nav_messages_link" data-toggle="dropdown">
+                <i class="icon-chat"></i>
+                <span class="indicator number-indicator hr_messages_count"></span>
+            </a>
+            <div class="dropdown-menu large" id="notify_messages">
+            </div>
+        </li>
+        <li class="dropdown notify_dropdown" id="tab-profile">
+            <a class="cursor backbone nav-link hr_nav_notifications_link" data-toggle="dropdown">
+                <i class="icon-megaphone"></i>
+                <span class="indicator number-indicator hr_notifications_count"></span>
+            </a>
+            <div class="dropdown-menu large" id="notify_broadcasts">
+                <div class="head">
+                    <strong>System Broadcasts</strong>
+                    <a class="hr_archive_all pull-right">Archive all</a>
+                </div>
+                <ul class="hr_nav_notifications_list">
+                </ul>
+                <div class="final">
+                    <a class="backbone" href="/notifications">Show All</a>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <% } %>
+    <span class="search_form pull-right challenges_search"></span>
+</script>
+
+<script type="text/template" id="nav-login-patch">
+    <% if (profile && profile.isLoggedIn()) { %>
+    <div class="admin-dropdown page_header_dropdown-toggle pull-right" id="profile-menu">
+        <a class="backbone dropdown-toggle page_header-userbtn" href="" data-toggle="dropdown">
+            <% if (_profile.avatar) { %>
+            <img src="<%= _profile.avatar %>" height="25" width="25" class="avatar"
+                 onerror="this.onerror=null; this.src='https://d3rpyts3de3lx8.cloudfront.net/hackerrank/assets/gravatar.jpg';">
+            <% } %>
+            <%= _profile.username %>
+            <span class="team-name"></span>
+            <i class="icon-down-open-mini"></i>
+        </a>
+        <ul class="unstyled dropdown-menu page_header_dropdown">
+            <li class="navigation_hackos"><span class="navigation_hackos-heading">Hackos:</span><span class="navigation_hackos-count"><%= _profile.hacko_amount %></span></li>
+            <li><a class="backbone" href="/<%= _profile.username %>">Profile</a></li>
+            <li><a class="backbone" href="<%= HR.appController.get_current_contest_namespace() %>/settings">Settings</a></li>
+            <li><a class="backbone" href="/inbox">Inbox</a></li>
+            <li id="tab-notifications">
+              <a class="backbone" href="<%= HR.appController.get_current_contest_namespace() %>/notifications">Notifications <span id="notifications-count"></span></a>
+            </li>
+            <li><a class="backbone" href="/administration">Administration</a></li>
+            <li><a class="logout-button">Logout</a></li>
+        </ul>
+    </div>
+    <% } else { %>
+    <div id="tab-login" class="login-prompt admin-dropdown page_header_dropdown-toggle pull-right">
+        <a href="/auth/login/<%= HR.appController.get_current_contest_slug() %>" class="login nav-btn page_header-userbtn">
+            Log In
+        </a>
+    </div>
+    <% } %>
+</script>
+
+    <script type="text/template" id="contest-navigation">
+    <div id="contest-nav" class="container">
+        <% if (contest_slug != 'master') { %>
+            <div class="page_nav-sub clearfix">
+                <% if (contest.running()) { %>
+                    <p class="pull-left bold">
+                        <span class="zeta">Current Contest: </span>
+                        <%= contest.get('name') %>
+                        <span class="plL color-alt-green">
+                            <i class="status-indicator active mmR"></i>
+                            <span class="countdowntimer"></span>
+                        </span>
+                    </p>
+                <% } else if (contest.ended()) { %>
+                    <p class="pull-left bold">
+                        <span class="zeta">Current Contest: </span>
+                        <%= contest.get('name') %>
+                        <span class="plL color-orange">
+                            <i class="status-indicator completed mmR"></i>
+                            Leaderboard Locked
+                        </span>
+                        <span class="help-prompt mmL">
+                            <i class="icon-info-circled"></i><span class="help-text">
+                            The contest has ended. Future submissions will not affect the leaderboard.
+                        </span>
+                    </p>
+                <% } else { %>
+                    <p class="pull-left bold">
+                        <span class="zeta">Current Contest: </span>
+                        <%= contest.get('name') %>
+                        <span class="plL">
+                            <i class="status-indicator pending mmR"></i>
+                            <span class="countdowntimer"></span>
+                        </span>
+                    </p>
+                <% } %>
+                <!--<div class="pull-left dropdown">
+                    <a class="btn btn-text btn-small padding-small right" data-toggle="dropdown">
+                        <i class="icon-cog icon--left"></i>
+                    </a>
+                    <div class="dropdown-menu padded" id="contestOptions">
+                        <header>
+                            <small class="alpha">Contest Options</small>
+                        </header>
+                        <div class="body">
+                            <label id="slideAwayToggle">
+                                <input type="checkbox" id="contestOptionCheckbox" <% if ($.cookie("hr_sidebar_visibility") !== "1") { %> checked="true" <% } %> > Hide Menu
+                            </label>
+                        </div>
+                    </div>
+                </div>-->
+                <div class="contest_links btn-group pull-right">
+                  <% if (contest_slug == 'codesprint5' || contest_slug == 'codesprint5-sample') { %>
+                    <a class="btn btn-text backbone hr_dynamic-companies" href="/contests/<%= contest_slug %>/apply">Apply to Companies</a>
+                  <% } %>
+                    <a class="btn btn-text backbone hr_dynamic-submissions hr_dynamic-challenges" href="/contests/<%= contest_slug %>/challenges">Challenges</a>
+                    <a class="btn btn-text backbone hr_dynamic-submissions" href="/contests/<%= contest_slug %>/submissions">Submissions</a>
+                    <a class="btn btn-text backbone hr_dynamic-leaderboard" href="/contests/<%= contest_slug %>/leaderboard">Leaderboard</a>
+                  <% if (contest_slug == 'codesprint5' || contest_slug == 'codesprint5-sample') { %>
+                    <a class="btn btn-text backbone hr_dynamic-faq" target="_blank" href="/faq">FAQ</a>
+                  <% } %>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</script>
+
+    <script type="text/template" id="side-navigation">
+    <nav class="page_navigation-sidebar expand hr_slide-away-element" id="sidebar">
+        <div class="mini-dash" style="display:none">
+            <!--<footer class="clearfix">
+                <p class="pull-left rank"><i class="icon-up-dir-1 success"></i> 5572<span class="sub-label">Points</span></p>
+                <p class="pull-right rank"><i class="icon-up-dir-1 success"></i> 242<span class="sub-label">Rank</span></p>
+                -->
+        </div>
+        <ul class="unstyled sidebar_nav-list">
+            <li id="ob-contests-link"><a href="/challenges" class="backbone"><i class="nav-icon icon-doc-text"></i><span class="nav-text">All Challenges</span></a></li>
+            <li><a href="/contests" class="backbone"><i class="nav-icon icon-clock"></i><span class="hr_sidebar_contest_indicator indicator"></span><span class="nav-text">Contests</span></a></li>
+
+            <!--<li><a href=""><i class="nav-icon icon-user"></i><span class="nav-text">Teams</span></a></li>-->
+            <li><a href="/leaderboard" class="backbone"><i class="nav-icon icon-trophy"></i><span class="nav-text">Leaderboard</span></a></li>
+            <li><a href="/submissions" class="backbone"><i class="nav-icon icon-list-bullet-small"></i><span class="nav-text">Submissions</span></a></li>
+            <li><a href="/inbox" class="backbone"><i class="nav-icon icon-chat"></i><span class="nav-text">Messages</span></a></li>
+        </ul>
+    </nav>
+</script>
+
+    <script>
+      window.fbAsyncInit = function() {
+        // init the FB JS SDK
+        FB.init({
+          appId      : '347499128655783',                // App ID from the app dashboard
+          channelUrl : '//www.hackerrank.com/channel.html', // Channel file for x-domain comms
+          status     : true,                                 // Check Facebook Login status
+          xfbml      : true                                  // Look for social plugins on the page
+        });
+      };
+      // Load the SDK asynchronously
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/all.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <div id="wrapper">
+        <div id="navigation"></div>
+        <div id="side-navigation"></div>
+        <div id="verifyaccount" class="container"></div>
+        <div id="ajax-msg-wrap"></div>
+        <!--<div id="countdowntimer" style="display: none;"></div>-->
+        <div id="contest-navigation"></div>
+        <div id="flash"></div>
+        <div id="submission-success-messages"></div>
+        <div id="onboarding3-content"></div>
+        <div id="content"></div>
+        <div id="hacker"></div>
+    </div>
+    <footer class="page_footer">
+    <div class="container">
+        <div class="text-center">
+            Join us on IRC at <a target="_blank" class="page_footer-IRC" href="http://webchat.freenode.net/?channels=hackerrank">#hackerrank</a> on freenode for hugs or bugs.
+            <br>
+            <p style="font-size: 14px; margin-top: 5px; margin-bottom: 0px;"><span class="internal-links"><a target="_blank" href="/calendar" class="calendar">Contest Calendar</a> | <a target="_blank" href="/blog" class="blog">Blog</a> | <a target="_blank" href="/scoring" class="scoring">Scoring</a> | <a target="_blank" href="/environment" class="environment">Environment</a> | <a target="_blank" href="/faq" class="faq">FAQ</a> |</span> <a target="_blank" href="/aboutus">About Us</a> | <a target="_blank" href="/careers">Careers</a> | <a target="_blank" href="/privacy">Privacy Policy</a> | <a href="#" class="featureRequestButton">Request a Feature</a></p>
+        </div>
+    </div>
+</footer>
+<script>
+    if ($) {
+        $(document).ready(function() {
+            $(".featureRequestButton").bind("click",function(e){
+                e.preventDefault();
+                feature = new HR.util.ShowFeatureRequestDialog();
+                feature.render();
+            });
+        });
+    }
+</script>
+<script>
+    $('.with-help').on({
+        'focus' : function() {
+           $(this).siblings('.sub-help').addClass('in');
+         },
+         'blur' : function() {
+           $(this).siblings('.sub-help').removeClass('in');
+         }
+    });
+</script>
+    <script type="text/javascript">
+  var _sf_async_config = { uid: 34206, domain: 'hackerrank.com', useCanonical: true };
+  (function() {
+    function loadChartbeat() {
+      window._sf_endpt = (new Date()).getTime();
+      var e = document.createElement('script');
+      e.setAttribute('language', 'javascript');
+      e.setAttribute('type', 'text/javascript');
+      e.setAttribute('src','//static.chartbeat.com/js/chartbeat.js');
+      document.body.appendChild(e);
+    };
+    var oldonload = window.onload;
+    window.onload = (typeof window.onload != 'function') ?
+      loadChartbeat : function() { oldonload(); loadChartbeat(); };
+  })();
+</script>
+
+    <ol id="hr_tour-intro-tour" class="hide">
+        <li data-class="hr_tour-challenge-name"  data-options="tipLocation:bottom"><h5 class="walkthrough-header">Challenge Walkthrough</h5><span class="walkthrough-text">Let's walk through this sample challenge and explore the features of the code editor.</span><span class="walkthrough-progress">1 of 6</span></li>
+        <li data-class="hr_tour-problem-statement" data-options="tipLocation:top"><h5 class="walkthrough-header">Review the problem statement</h5><span class="walkthrough-text">Each challenge has a problem statement that includes sample inputs and outputs. Some challenges include additional information to help you out.</span><span class="walkthrough-progress">2 of 6</span></li>
+        <li data-class="hr_tour-select-language" data-options="tipLocation:left"><h5 class="walkthrough-header">Choose a language</h5><span class="walkthrough-text">Select the language you wish to use to solve this challenge.</span><span class="walkthrough-progress">3 of 6</span></li>
+        <li data-class="hr_tour-code-solution" data-options="tipLocation:top"><h5 class="walkthrough-header">Enter your code</h5><span class="walkthrough-text">Code your solution in our custom editor or code in your own environment and upload your solution as a file.</span><span class="walkthrough-progress">4 of 6</span></li>
+        <li data-class="hr_tour-compile-test" data-options="tipLocation:left"><h5 class="walkthrough-header">Test your code</h5><span class="walkthrough-text">You can compile your code and test it for errors and accuracy before submitting.</span><span class="walkthrough-progress">5 of 6</span></li>
+        <li data-class="hr_tour-submit-code" data-button="Done" data-options="tipLocation:left"><h5 class="walkthrough-header">Submit to see results</h5><span class="walkthrough-text">When you're ready, submit your solution! Remember, you can go back and refine your code anytime.</span><span class="walkthrough-progress">6 of 6</span></li>
+    </ol>
+    <ol id="hr_tour-intro-part-2-tour" class="hide">
+        <li data-class="hr_tour-leaderboard">Check your score</li>
+    </ol>
+</body>
+
+  
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+    (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+</script>
+
+<!-- Mixpanel -->
+<script type="text/javascript">
+    (function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
+typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
+    mixpanel.init("bcb75af88bccc92724ac5fd79271e1ff");
+
+    mixpanel.identify(jsCookies.get("hackerrank_mixpanel_token"));
+</script>
+
+<!-- Chartbeat -->
+<script type="text/javascript">
+  var _sf_async_config = {
+    uid: 34206,
+    domain: "hackerrank.com",
+    useCanonical: true
+  };
+  (function() {
+    function loadChartbeat() {
+      window._sf_endpt = (new Date()).getTime();
+      var e = document.createElement('script');
+      e.setAttribute('language', 'javascript');
+      e.setAttribute('type', 'text/javascript');
+      e.setAttribute('src','//static.chartbeat.com/js/chartbeat.js');
+      document.body.appendChild(e);
+    };
+    var oldonload = window.onload;
+    window.onload = (typeof window.onload != 'function') ?
+      loadChartbeat : function() { oldonload(); loadChartbeat(); };
+  })();
+</script>
+
+
+
+
+</html>
