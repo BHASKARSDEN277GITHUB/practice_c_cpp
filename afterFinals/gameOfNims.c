@@ -1,0 +1,95 @@
+#include<stdio.h>
+int changes=0;
+int normal=0;
+void recursion(int [] , int , int , int ,int); // array , index , maxvalue, n ..
+int checkXorSum(int [] , int , int);//array , start index, end index ..
+main()
+{
+	int n ;
+	scanf("%d",&n);
+	int piles[n];
+	int i ; //iterator ..
+	int max=0;
+	for(i=0;i<n;i++)
+	{
+		scanf("%d",&piles[i]);
+		if(max<piles[i])
+		max=piles[i];
+	}
+	int skipIndex=0;
+	for(skipIndex=0;skipIndex<n;skipIndex++)
+	{
+		recursion(piles,0,max,n,skipIndex);
+	}
+	printf("%d\n%d",changes,normal);
+}
+	
+void recursion(int piles[],int index,int max,int n,int skipIndex)
+{
+	int i=0; //iterator ..
+	int pileConfig[max+1];
+	int *p=pileConfig ;
+	int *ip=pileConfig;
+	int sum=0;
+	int k ;
+	if(index<n)
+	{
+		if(index!=skipIndex)
+		{
+			for(i=0;i<=max;i++)
+			{
+					
+				if(piles[index]-i>=0)
+				{	piles[index]-=i;
+			
+					if(checkXorSum(piles,0,n))
+					{	
+						for(k=0;k<n;k++)
+						{
+							sum=sum+piles[k];
+						}
+						
+		       			
+						for(ip=pileConfig;ip<p;ip++)
+						{	
+							if(sum==*ip)
+							k=-1;
+						}
+						if(k!=-1)
+						{ 
+							changes++;
+							
+						
+							printf("Printing the current piles values \n");
+							int j ;
+							for(j=0;j<n;j++)
+							printf("%d  ",piles[j]);
+						}
+						*p=sum;	
+						p++;
+					}
+				}
+				
+				normal++;
+				recursion(piles,index+1,max,n,skipIndex);
+			}
+		}
+		else
+			recursion(piles,index+1,max,n,skipIndex);   
+	}
+}
+
+int checkXorSum(int piles[],int start,int end)
+{
+	int xorSum=piles[start];
+	int i ;
+	for(i=start+1;i<end;i++)
+	{
+		xorSum=xorSum^piles[i];
+	}
+	if(xorSum==0)
+	return 1;
+	else
+	return 0;
+}
+

@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/transitional.dtd">
+<!-- saved from url=(0067)http://www.cse.ohio-state.edu/~gurari/course/cis680/cis680Ch10.html -->
+<html xmlns="http://www.w3.org/TR/xhtml1"><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><!--cis680Ch10.html from cis680.tex (TeX4ht, 1999-12-07 05:55:00)--> 
+<title>AVL Trees</title><link rel="stylesheet" type="text/css" href="./AVL Trees_files/cis680.css"></head> <body bgcolor="ffffff"> <div class="crosslinks"><p class="noindent">[<a href="http://www.cse.ohio-state.edu/~gurari/course/cis680/cis680Ch11.html">next</a>] [<a href="http://www.cse.ohio-state.edu/~gurari/course/cis680/cis680Ch9.html">prev</a>] [<a href="http://www.cse.ohio-state.edu/~gurari/course/cis680/cis680Ch9.html#tailcis680Ch9.html">prev-tail</a>] [<a href="http://www.cse.ohio-state.edu/~gurari/course/cis680/cis680Ch10.html#tailcis680Ch10.html">tail</a>] [<a href="http://www.cse.ohio-state.edu/~gurari/course/cis680/cis680No1.html#cis680Ch10.html">up</a>] </p></div>
+<h2 class="ChapterHead">Chapter 10<br><a href="http://www.cse.ohio-state.edu/~gurari/course/cis680/cis6802.html#QQ2-42-67" name="QQ1-42-67">AVL Trees</a></h2>
+<h3 class="SectionHead">10.1 <a href="http://www.cse.ohio-state.edu/~gurari/course/cis680/cis6802.html#QQ2-42-68" name="QQ1-42-68">Definitions</a></h3>
+<!--5946--><p class="noindent">Named after Adelson, Velskii, and Landis.
+</p><!--5948--><p class="noindent">Trees of height <span class="cmmi-10">O</span>(log <span class="cmmi-10">n</span>) are said to be <strong>balanced</strong>. AVL trees consist of a special case in which the subtrees of each
+node differ by at most 1 in their height.
+</p><!--5952--><p class="noindent">Balanced trees can be used to search, insert, and delete arbitrary keys in <span class="cmmi-10">O</span>(log <span class="cmmi-10">n</span>) time. In contrast,
+height-biased leftist trees rely on non-balanced trees to speed-up insertions and deletions in priority
+queues.
+</p>
+<h3 class="SectionHead">10.2 <a href="http://www.cse.ohio-state.edu/~gurari/course/cis680/cis6802.html#QQ2-42-69" name="QQ1-42-69">Height</a></h3>
+<!--5960--><p class="noindent"><strong>Claim:</strong> AVL trees are balanced.
+</p><!--5963--><p class="noindent"><strong>Proof.</strong> Let <span class="cmmi-10">N</span><sub><span class="cmmi-7">h</span></sub> denote the number of nodes in an AVL tree of depth h
+</p><!--5966--><p class="noindent"></p>
+<div align="center" class="eqalign"><table class="eqalign">
+<tbody><tr class="eqalign" valign="middle"><td align="right" class="eqalign1" nowrap="nowrap"><span class="cmmi-10">N</span><sub><span class="cmmi-7">h</span></sub></td><td align="left" class="eqalign2" nowrap="nowrap"> <span class="cmsy-10"><u class="underline">&gt;</u> </span><span class="cmmi-10">N</span><sub><span class="cmmi-7">h</span><span class="cmsy-7">-</span><span class="cmr-7">1</span></sub> + <span class="cmmi-10">N</span><sub><span class="cmmi-7">h</span><span class="cmsy-7">-</span><span class="cmr-7">2</span></sub> + 1</td>
+</tr>
+<tr class="eqalign" valign="middle"><td align="right" class="eqalign1" nowrap="nowrap"></td><td align="left" class="eqalign2" nowrap="nowrap"> <span class="cmsy-10"><u class="underline">&gt;</u> </span>2<span class="cmmi-10">N</span><sub><span class="cmmi-7">h</span><span class="cmsy-7">-</span><span class="cmr-7">2</span></sub> + 1</td>
+</tr>
+<tr class="eqalign" valign="middle"><td align="right" class="eqalign1" nowrap="nowrap"></td><td align="left" class="eqalign2" nowrap="nowrap"> <span class="cmsy-10"><u class="underline">&gt;</u> </span>1 + 2(1 + 2<span class="cmmi-10">N</span><sub><span class="cmmi-7">h</span><span class="cmsy-7">-</span><span class="cmr-7">4</span></sub>)</td>
+</tr>
+<tr class="eqalign" valign="middle"><td align="right" class="eqalign1" nowrap="nowrap"></td><td align="left" class="eqalign2" nowrap="nowrap"> = 1 + 2 + 2<sup><span class="cmr-7">2</span></sup><span class="cmmi-10">N</span><sub>
+<span class="cmmi-7">h</span><span class="cmsy-7">-</span><span class="cmr-7">4</span></sub></td>
+</tr>
+<tr class="eqalign" valign="middle"><td align="right" class="eqalign1" nowrap="nowrap"></td><td align="left" class="eqalign2" nowrap="nowrap"> <span class="cmsy-10"><u class="underline">&gt;</u> </span>1 + 2 + 2<sup><span class="cmr-7">2</span></sup> + 2<sup><span class="cmr-7">3</span></sup><span class="cmmi-10">N</span><sub>
+<span class="cmmi-7">h</span><span class="cmsy-7">-</span><span class="cmr-7">6</span></sub></td>
+</tr>
+<tr class="eqalign" valign="middle"><td align="right" class="eqalign1" nowrap="nowrap"></td><td align="left" class="eqalign2" nowrap="nowrap"><span class="cmmi-10">...</span></td>
+</tr>
+<tr class="eqalign" valign="middle"><td align="right" class="eqalign1" nowrap="nowrap"></td><td align="left" class="eqalign2" nowrap="nowrap"> <span class="cmsy-10"><u class="underline">&gt;</u> </span>1 + 2 + 2<sup><span class="cmr-7">2</span></sup> + 2<sup><span class="cmr-7">3</span></sup> + <span class="cmmi-10">... </span>+ 2<sup><span class="cmmi-7">h/</span><span class="cmr-7">2</span></sup></td>
+
+</tr>
+<tr class="eqalign" valign="middle"><td align="right" class="eqalign1" nowrap="nowrap"></td><td align="left" class="eqalign2" nowrap="nowrap"> = 2<sup><span class="cmmi-7">h/</span><span class="cmr-7">2</span></sup> <span class="cmsy-10">- </span>1</td>
+</tr>
+<tr class="eqalign" valign="middle"><td align="right" class="eqalign1" nowrap="nowrap"></td>
+</tr></tbody></table></div>
+Hence,
+<!--5982--><p class="noindent"></p>
+<div align="center" class="eqalign"><table class="eqalign">
+<tbody><tr class="eqalign" valign="middle"><td align="right" class="eqalign1" nowrap="nowrap">2<sup><span class="cmmi-7">h/</span><span class="cmr-7">2</span></sup> <span class="cmsy-10">- </span>1</td><td align="left" class="eqalign2" nowrap="nowrap"> <span class="cmsy-10"><u class="underline">&lt;</u> </span><span class="cmmi-10">n</span></td>
+</tr>
+<tr class="eqalign" valign="middle"><td align="right" class="eqalign1" nowrap="nowrap"><span class="cmmi-10">h/</span>2</td><td align="left" class="eqalign2" nowrap="nowrap"> <span class="cmsy-10"><u class="underline">&lt;</u></span> log <sub><span class="cmr-7">2</span></sub>(<span class="cmmi-10">n </span>+ 1)</td>
+</tr>
+<tr class="eqalign" valign="middle"><td align="right" class="eqalign1" nowrap="nowrap"><span class="cmmi-10">h</span></td><td align="left" class="eqalign2" nowrap="nowrap"> <span class="cmsy-10"><u class="underline">&lt;</u> </span>2 log <sub><span class="cmr-7">2</span></sub>(<span class="cmmi-10">n </span>+ 1)</td>
+</tr>
+<tr class="eqalign" valign="middle"><td align="right" class="eqalign1" nowrap="nowrap"></td>
+</tr></tbody></table></div>
+A more careful analysis, based on Fibonacci numbers theory, implies the tighter bound of 1<span class="cmmi-10">.</span>44 log <sub><span class="cmr-7">2</span></sub>(<span class="cmmi-10">n </span>+ 2).
+<h3 class="SectionHead">10.3 <a href="http://www.cse.ohio-state.edu/~gurari/course/cis680/cis6802.html#QQ2-42-70" name="QQ1-42-70">Rotations</a></h3>
+<table border="1"><tbody><tr align="center">
+<td>LL </td><td>
+
+<img src="./AVL Trees_files/cis680130x.gif" alt="             ----Ao ------||
+          ----        --  |-
+         Bo-          - AR - h
+      ---   ---       -|  --
+   ----|     ---||      |||
+  --   --   --   --
+h --BL --   --BR --h
+   -|||-     ||||-
+     Do">
+</td><td>
+
+<img src="./AVL Trees_files/cis680131x.gif" alt="    |-------Bo---
+   -- ||-       -----
+h --BL  -         -Ao-
+   -| |--       ---  ----
+    |||      -|--|    ---||-
+     |      --   --   -    -
+     Do    h --BR --   - AR - h
+             ||||-    -|||--">
+</td></tr><tr align="center">
+<td>
+RR </td><td>
+
+<img src="./AVL Trees_files/cis680132x.gif" alt="    |-------Ao---
+   --  |-       -----
+h --AL  -         -Bo-
+   -| |--       ---  ----
+    |||      -|--|    ---||-
+            --   --   -    -
+          h --BL --   - BR -h
+             |||--    -|||--
+                        Do">
+</td><td>
+
+<img src="./AVL Trees_files/cis680133x.gif" alt="             ----Bo ------||
+          ----        --  |-
+         Ao-          - BR -h
+      ---- ----       -|  --
+   ----|     ---||     ||||
+  --   --   --   --     |
+h --AL  -   --BL --h    Do
+   -|||-     |||--">
+</td></tr><tr align="center">
+<td>LR </td><td>
+
+<img src="./AVL Trees_files/cis680134x.gif" alt="                -----Ao ---------||
+           ------            --  |-
+         --Bo|               --AR  -h
+      ----  ||||             -| |--
+  ----|-       |||            |||
+  -    -         ||
+h - BL -       ||Co||
+  -|||--     |||    ||||
+           --| |-   -- ||
+        h- 1 -CL  -   -CR -|h- 1
+            |||-    -|||-
+             Do">
+</td><td>
+
+<img src="./AVL Trees_files/cis680135x.gif" alt="         --------Co--------
+      --Bo--            --Ao---
+  ------    --||    -----    ---||-
+  - B  -   --  --   -   -|  --A   -
+h -  L -   -CL --h- 1 -CR -   --  R -h
+  -|||--    |||-     |||-    -|||-
+             Do">
+</td></tr><tr align="center">
+<td>
+RL </td><td>
+
+<img src="./AVL Trees_files/cis680136x.gif" alt="   |----------Ao-----
+  --  |-            -----
+h -AR  -               |Bo--
+  -|  --             |||   ----
+   |||             |||       ---||-
+                  ||         -    -
+                |Co||        -BR  -h
+             |||    ||||     -|||--
+           --| |-   -- ||-
+        h- 1 -CL  -   -CR -|h- 1
+            |||--   -|||-
+             Do">
+</td><td>
+
+<img src="./AVL Trees_files/cis680137x.gif" alt="         --------Co--------
+      --Ao--            --Bo---
+  ------    --||    -----    ---||-
+  - A  -   --  --   -   -|  --B   -
+h -  L--   -CL --h- 1 -CR -   --  R -h
+  -|||-     |||-     |||-    -|||-
+             Do">
+</td></tr><tr align="center">
+<td>
+LL<br><span class="cmtt-10">&amp;</span><br>LR<br><span class="cmsy-10"><img src="./AVL Trees_files/cmsy10-29.gif" alt="==&gt;" class="10--29"></span><br>LL </td><td>
+
+<img src="./AVL Trees_files/cis680138x.gif" alt="             ----Ao ------||
+          ----        --  |-
+         Bo-          - AR - h
+      ---   ---       -|  --
+   ----|     ---||      |||
+  --   --   --   --
+h --BL --   --BR --h
+   -|||-     ||||-
+     Do        Eo">
+</td><td>
+
+<img src="./AVL Trees_files/cis680139x.gif" alt="    |-------Bo---
+   -- ||-       -----
+h --BL  -         -Ao-
+   -| |--       ---  ----
+    |||      -|--|    ---||-
+     |      --   --   -    -
+     Do    h --BR --   - AR - h
+             ||||-    -|||--
+              Eo">
+</td></tr></tbody></table>
+<h3 class="SectionHead">10.4 <a href="http://www.cse.ohio-state.edu/~gurari/course/cis680/cis6802.html#QQ2-42-71" name="QQ1-42-71">Insertions and Deletions</a></h3>
+<!--6253--><p class="noindent">Insertions and deletions are performed as in binary search trees, and followed by rotations to correct
+imbalances in the outcome trees. In the case of insertions, one rotation is sufficient. In the case of
+deletions, <span class="cmmi-10">O</span>(log <span class="cmmi-10">n</span>) rotations at most are needed from the first point of discrepancy going up toward the
+root.
+</p>
+<table border="1"><tbody><tr align="center">
+<td></td><td>
+<img src="./AVL Trees_files/cis680140x.gif" alt="               o
+            --5 ---
+         ---      ----
+      o---           -- o
+     |3||            --8---
+    ||  ||        ----    ---
+  2o     4o      7o-          11o
+  |             |           || ||
+ ||            ||          ||   ||
+1o             6o          10o|     12o
+                         ||
+                         |
+                        9o"></td></tr><tr align="center">
+<td>
+Delete 4
+</td><td>
+
+<img src="./AVL Trees_files/cis680141x.gif" alt="            --5o---
+         ----     ----
+      o---           -- o
+     |3              --8---
+    ||             ---    ---
+   o|            o--        --o
+  2             |7           11|
+ ||            ||          ||  |||
+o|             o          o|     |o
+1             6          |10      12
+                         |
+                        9o">
+</td></tr><tr align="center">
+<td>
+Imbalance at ‘3’ implies a LL rotation with ‘2’
+</td><td>
+
+<img src="./AVL Trees_files/cis680142x.gif" alt="        ---5o---
+      ---     ---
+   o---          --o
+  |2|            --8--
+ || ||        ----    ---
+ o   o       o-         --o
+1    3      7           |11|
+           ||          ||  ||
+          o|          o|    |o
+          6          10     12
+                    ||
+                   9o">
+</td></tr><tr align="center">
+<td>
+Imbalance at ‘5’ implies a RR rotation with ‘8’.
+</td><td>
+
+<img src="./AVL Trees_files/cis680143x.gif" alt="              --8o---
+           ----     ----
+        o---           -- o
+      |5 ||             |11|
+    |||   ||           ||  ||
+   o|      ||o        o|    |o
+  |2|       7        10     12
+ || ||     ||       ||
+ o   o    o|        o
+1    3    6        9">
+</td></tr></tbody></table>
+<h3 class="SectionHead">10.5 <a href="http://www.cse.ohio-state.edu/~gurari/course/cis680/cis6802.html#QQ2-42-72" name="QQ1-42-72">Demo Applets</a></h3>
+<!--6349--><p class="noindent">
+</p><ul>
+<li><a href="http://www.cgc.cs.jhu.edu/~jkloss/htmls/structures/avltree.html">demo of AVL trees</a></li>
+<li><a href="http://www.seanet.com/users/arsen/avltree.html">demo of AVL trees</a></li></ul>
+<h3 class="SectionHead">10.6 <a href="http://www.cse.ohio-state.edu/~gurari/course/cis680/cis6802.html#QQ2-42-73" name="QQ1-42-73">Assignment #4 (due We, Oct 20)</a></h3>
+<!--11074--><p class="noindent">
+</p><ol type="1">
+<li>Provide an algorithm that, when given a binary search tree, removes in constant space all the nodes from the tree,
+in ascending order of keys. How much time your algorithm requires? Show the time and space analysis of your
+algorithm.
+<!--11081--><p class="noindent"></p></li>
+<li>Provide an algorithm that, when given a binary search tree, removes in linear time all the nodes from the tree, in
+ascending order of keys. How much space your algorithm requires? Show the time and space analysis of your
+algorithm.
+<!--11087--><p class="noindent"></p></li>
+<li>Construct a binary search tree by introducing the following keys in the given order: 1, 2, 7, 6, 3, 4, 5. Then
+repeatedly use AVL rotations to transform the tree into an AVL tree, while showing all the intermediate trees being
+created in the process. In each stage, the AVL transformation should be conducted at a discrepancy that is farthest
+from the root.
+</li></ol>
+
+<div class="crosslinks"><p class="noindent">[<a href="http://www.cse.ohio-state.edu/~gurari/course/cis680/cis680Ch11.html">next</a>] [<a href="http://www.cse.ohio-state.edu/~gurari/course/cis680/cis680Ch9.html">prev</a>] [<a href="http://www.cse.ohio-state.edu/~gurari/course/cis680/cis680Ch9.html#tailcis680Ch9.html">prev-tail</a>] [<a href="./AVL Trees_files/AVL Trees.html">front</a>] [<a href="http://www.cse.ohio-state.edu/~gurari/course/cis680/cis680No1.html#cis680Ch10.html">up</a>] </p></div><a name="tailcis680Ch10.html"></a>   
+ 
+ 
+</body></html>

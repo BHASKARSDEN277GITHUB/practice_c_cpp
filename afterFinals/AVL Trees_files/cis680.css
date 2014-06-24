@@ -1,0 +1,42 @@
+ 
+/* start css.sty */
+.cmr-7{font-size:70%;}
+.cmmi-10{font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmsy-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.lcircle-10--248{font-size:248%;}
+.small-caps{font-variant: small-caps; }
+p.noindent { text-indent: 0em }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+div.displaymath{text-align:center;}
+img.mathdisplay, div.displaymath, img.par-mathdisplay, div.par-displaymath { margin-top: 1em; margin-bottom: 1em; }
+center img.mathdisplay, td img.mathdisplay, center img.par-mathdisplay, td img.par-mathdisplay { margin-top: 0; margin-bottom:0 ; }
+div.displaymath{text-align:center;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+.underline{ text-decoration:underline; }
+.overline{ text-decoration:overline; }
+span.pmatrix img{vertical-align:middle;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+td.eqalign3 { text-align:right; margin-left:10em;}
+.eqalign td { white-space: nowrap; }
+td.eqalignno3 { text-align:right; margin-left:10em;}
+.eqalignno td { white-space: nowrap; }
+.eqalignno td.noalign { white-space: normal; }
+td.leqalignno3 { text-align:right; margin-left:10em;}
+.leqalignno td { white-space: nowrap; }
+.leqalignno td.noalign { white-space: normal; }
+div.proclaim { margin-top: 1em; margin-bottom: 1em; }
+div.beginsection { margin-top: 1em; margin-bottom: 1em; }
+.item {margin-left: 3em; text-indent: -2em; margin-top: 0.5em; margin-bottom: 0.5em;}
+.border-halign td td {border: solid 1px black; padding-left:0.3em; padding-right:0.3em; } 
+.border-halign td table {border: solid 1px black;}
+/* end css.sty */
