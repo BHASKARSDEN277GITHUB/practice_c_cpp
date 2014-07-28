@@ -31,7 +31,7 @@ main() {
 	findCousins(root,0,-1,a,b); //-1 is said to be the parent of root node ..
 
 	//check the parents and levels ..
-	if(l1==l2 && p1==p2) {
+	if(l1==l2 && p1!=p2) {
 		
 		printf("%d and %d are COUSINS\n",a,b);
 	} else {
