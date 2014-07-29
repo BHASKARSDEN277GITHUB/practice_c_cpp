@@ -70,31 +70,67 @@ main() {
 
 	calculate();
 
+//	printf("%d %d \n",topOperand,topOperator);
+
 }
 
 
 void calculate() {
 	
 	int a ;
-	char cOp ;
+	char cOp ; //current operator 
+	char nOp ; //next operator 
 	int result = popOperand();
+	printf("%d %d \n",topOperand,topOperator);
+
+
 	while(topOperand>=0) {
 
 		a=popOperand();
 		cOp=popOperator();
 		
-		if(cOp=='+') {
+		printf("%c,%c\n",cOp,nOp);	
+	
+		if(topOperator>=0) {
 
-			result=result+a;
+			nOp=popOperator();
 
 		} else {
 
+			nOp='+';
+		}
+		
+		printf("%c,%c\n",cOp,nOp);
+	
+		if(cOp=='+'&& nOp=='+') {
+
+			result=result+a;
+			printf("%d,%c,%c\n",result,cOp,nOp);
+			pushOperator('+');
+
+		} else if(cOp=='+' && nOp=='-') {
+
+			result=result-a;
+			pushOperator('+'); // as '-' has already been taken 
+			printf("%d,%c,%c\n",result,cOp,nOp);
+	
+		} else if(cOp=='-' && nOp=='+') {
+
 			result=-result+a;
+			pushOperator('+');
+			printf("%d,%c,%c\n",result,cOp,nOp);
+
+		} else {
+
+			result=-result-a;
+			pushOperator('+'); //as '-' has already been taken 
+			printf("%d,%c,%c\n",result,cOp,nOp);
 
 		}
+
 	}
 
-	printf("%d\n",result);
+	printf("%d\n",result); 
 
 }
 
@@ -149,7 +185,7 @@ char popOperator() {
 	if(topOperator>=0) {
 
 		topOperator--;
-		return stackOperator[topOperator];
+		return stackOperator[topOperator+1];
 
 	} else {
 

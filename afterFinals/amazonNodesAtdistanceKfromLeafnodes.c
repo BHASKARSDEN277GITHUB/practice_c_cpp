@@ -87,7 +87,7 @@ int isRequired(struct node *cnode,int k)
 	int check1=-1 ;
 	int check2=-1;
 
-	if(k==1)
+	if(k==0)
 	{
 		if(cnode->leftpointer==NULL&&cnode->rightpointer==NULL)
 		return 1;
