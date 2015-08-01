@@ -1,0 +1,84 @@
+//program to insert a node into a already sorted list
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node
+{
+int data;
+struct node *next;
+};
+
+
+void push(struct node **headref , int item)
+{
+struct node *temp = (struct node *) malloc(sizeof(struct node));
+temp->data=item;
+temp->next = (*headref);
+(*headref) = temp; 
+}
+
+struct node *allocate(int item)
+{
+struct node *newnode = (struct node*)malloc(sizeof(struct node));
+newnode->data=item;
+return newnode; 
+}
+
+void insert(struct node **headref ,int item)
+{
+
+struct node *a = allocate(item);
+if(*headref == NULL)
+{
+(*headref)->data = item; //insert as a first if list is null
+(*headref)=a;
+}
+if(item < (*headref)->data) //if item is less than the head node then insert it before the head node
+{
+a->next = *headref;
+*headref=a;
+}
+else
+{
+struct node *current = *headref;
+while(current->next!=NULL && current->next->data < item)
+{
+current= current->next;
+}
+
+a->next = current->next;
+current->next = a;
+}
+
+}
+
+
+
+void printlist(struct node *head)
+{
+struct node *temp = head;
+while(temp!=NULL)
+{
+printf("%d \t",temp->data);
+temp = temp->next;
+}
+printf("\n");
+}
+
+int main()
+{
+struct node *head = NULL;
+push(&head,15);
+push(&head,14);
+push(&head,13);
+push(&head,10);
+push(&head,7);
+
+printf("list before insertion\n");
+printlist(head);
+
+insert(&head ,12);
+printf("list after insertion \n");
+printlist(head);
+return 0;
+}

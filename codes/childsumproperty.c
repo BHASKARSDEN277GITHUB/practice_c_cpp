@@ -1,0 +1,56 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct tree *newnode(int item);
+
+struct tree{
+int data;
+struct tree *left;
+struct tree *right;
+};
+
+struct tree *newnode(int item)
+{
+struct tree * node = (struct tree *)malloc(sizeof(struct tree));
+node->data=item;
+node->left=NULL;
+node->right=NULL;
+return node;
+}
+
+
+int childsum(struct tree *node)
+{
+int ldata=0;
+int rdata=0;
+
+if(node ==NULL || (node->left == NULL && node->right==NULL))
+return 1;
+
+
+if(node->left!=NULL)
+ldata= node->left->data;
+if(node->right!=NULL)
+rdata=node->right->data;
+
+if((node->data == ldata + rdata) && childsum(node->left) && childsum(node->right))
+return 1;
+else 
+return 0;
+}
+
+int main()
+{
+struct tree *node = newnode(3);
+node->left= newnode(2);
+node->left->left = newnode(1);
+node->left->right=newnode(1);
+node->right=newnode(1);
+
+if(childsum(node))
+printf("property satisfied");
+else
+printf("not satisfied");
+
+return 0;
+}
+

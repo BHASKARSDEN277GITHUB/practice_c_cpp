@@ -1,0 +1,55 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct tree{
+int data;
+struct tree *left;
+struct tree *right;
+};
+
+struct tree *newnode(int item)
+{
+struct tree * node;
+node= (struct tree *)malloc(sizeof(struct tree));
+node->data=item;
+node->left=NULL;
+node->right=NULL;
+return node;
+}
+
+int hasidentical(struct tree *root1 , struct tree *root2)
+{
+
+if(root1 ==NULL && root2 == NULL )
+return 0;
+
+else if(root1!=NULL && root2 !=NULL)
+{
+return (
+root1->data == root2->data && hasidentical(root1->left,root2->left)
+&& hasidentical(root1->right,root2->right)
+);
+}
+
+return 0;
+}
+
+
+
+int main()
+{
+
+struct tree *root1 = newnode(1);
+root1->left=newnode(2);
+root1->right=newnode(3);
+
+struct tree *root2 = newnode(1);
+root2->left=newnode(4);
+root2->right=newnode(3);
+
+if(hasidentical(root1,root2))
+printf("trees are identical");
+else 
+printf("they are not identical");
+return 0;
+}

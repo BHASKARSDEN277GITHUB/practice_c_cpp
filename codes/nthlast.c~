@@ -1,0 +1,58 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+
+struct node
+{
+int data;
+struct node *next;
+};
+
+
+void push(struct node **headref , int item)
+{
+struct node *temp = (struct node *) malloc(sizeof(struct node));
+temp->data=item;
+temp->next = (*headref);
+(*headref) = temp; 
+}
+
+void findnth(struct node *head , int n)
+{
+struct node *pthnode=head;
+struct node *ptemp=head;;
+struct node *temp = head;
+int i;
+int count=0;
+
+while(temp!=NULL)
+{
+count++;
+temp=temp->next;
+}
+
+for(i=1;i<=n;i++)
+{
+ptemp=ptemp->next;
+}
+while(ptemp!=NULL)
+{
+pthnode=pthnode->next;
+ptemp=ptemp->next;
+}
+printf("%d",pthnode->data);
+}
+
+int main()
+{
+struct node *head = NULL;
+push(&head,5);
+push(&head,4);
+push(&head,13);
+push(&head,2);
+push(&head,11);
+
+findnth(head,5);
+//printf("%d",x);
+return 0;
+}
