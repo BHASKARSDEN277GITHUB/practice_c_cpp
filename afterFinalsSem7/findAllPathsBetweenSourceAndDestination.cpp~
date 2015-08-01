@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-//c++ program to find all the paths between source and destination
-=======
 //c program to find all the paths between source and destination
->>>>>>> 7d231beec07f4f86044201c580365c0d0ebcfc1a
 #include<iostream>
 #include<stdio.h>
 

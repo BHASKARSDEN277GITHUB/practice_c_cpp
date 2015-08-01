@@ -1,0 +1,11 @@
+Deadlock conditions :
+	mutual exclusion
+	hold and wait
+	circular wait 
+	no preemption
+
+Critical Section conditions :
+	mutual exclusion
+	progress
+	bounded wait
+	

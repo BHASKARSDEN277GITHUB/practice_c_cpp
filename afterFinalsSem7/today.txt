@@ -1,0 +1,6 @@
+algo 
+dbms
+sql
+apti
+puzzles
+java revision

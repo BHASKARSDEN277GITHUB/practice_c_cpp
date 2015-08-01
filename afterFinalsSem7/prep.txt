@@ -1,0 +1,31 @@
+algorithms-3hoursdaily
+c-1hour daily
+c++-1hourdaily
+java-1hourdaily
+python-2hours
+shell scripting/unix-1/2hour    ---->half done
+systemc-1hour
+projects-1/2hour daily
+android-3hrs
+os-tommorow+1hour daily
+dbms-tommorow+1 hour daily
+sql-1hour daily
+django-3hours
+networking-1hour daily
+puzzles-1hour daily
+apti-1hour daily
+technical apti-1hour daily
+selenium web driver
+
+
+//questions to be solved 
+ suffix trees 
+ check escape characters c like \n \b \r etc
+ negative cycle graphs shortest path
+ kruskal's algorithm sorting and searching algorithms 
+ user and kernel threads
+ synchronization hardware page 257 os , 265 os
+ adaptive mutex
+ normalisation dbms
+ process synchronization unix ( atomic transactions )
+ avl trees

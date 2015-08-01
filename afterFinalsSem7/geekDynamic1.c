@@ -62,14 +62,14 @@ void findSubstring(char *str,int len) {
 			if(j>i) {
 				next=j+(j-i)+1;
 				if(next<len) {
-				if(temp[i][j]==temp[j+1][next]) {
-					if((next-i+1)>maxLen) {
-						maxLen=next-i+1;
-						printf("%d %d %d\n",next,i,j);
-						start=i;
-						end=next;					
+					if(temp[i][j]==temp[j+1][next]) {
+						if((next-i+1)>maxLen) {
+							maxLen=next-i+1;
+							printf("%d %d %d\n",next,i,j);
+							start=i;
+							end=next;					
+						}
 					}
-				}
 				}
 			}
 		}
